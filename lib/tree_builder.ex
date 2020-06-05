@@ -7,4 +7,8 @@ defmodule TreeBuilder do
     String.split(data, ",")
     |> Enum.map(&String.split(&1, "/"))
   end
+
+  def parse_url(url) when is_list(url) do
+    nil
+  end
 end
