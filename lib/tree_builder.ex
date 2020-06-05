@@ -3,16 +3,8 @@ defmodule TreeBuilder do
   Documentation for `TreeBuilder`.
   """
 
-  @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> TreeBuilder.hello()
-      :world
-
-  """
-  def hello do
-    :world
+  def tree(data) when is_bitstring(data) do
+    String.split(data, ",")
+    |> Enum.map(&String.split(&1, "/"))
   end
 end
