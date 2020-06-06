@@ -1,6 +1,4 @@
 defmodule TreeBuilder do
-  alias TreeBuilder.Node
-
   @moduledoc """
   Documentation for `TreeBuilder`.
   """
@@ -20,11 +18,6 @@ defmodule TreeBuilder do
     |> Enum.map(&find_category/1)
   end
 
-
-  # def find_category({nil, [nil]}) do
-  #   %{}
-  # end
-
   def find_category({domain, urls}) do
     category = urls
     |> Enum.map(&String.split(&1, "\/", trim: true))
@@ -35,22 +28,4 @@ defmodule TreeBuilder do
     Map.put(%{}, domain, category)
     |> IO.inspect()
   end
-  # def parse_url(url, acc) do
-  #   [domain | data ] = url
-  #   |> String.split("\/")
-
-  #   data
-  #   |> Enum.reduce(%Node{name: domain}, &build_node/2)
-  # end
-
-  # def build_node([node_name, data], %Node{children: children}) do
-  #   children
-  #   |> Enum.find(%Node{name: node_name}, fn node -> Map.get(node, :name) == node_name end)
-  #   |> Map.update(:children, [], &build_node())
-  # end
-
-  # def build_node({start_id, nodes} = acc, node_name, parent) do
-  #   id = start_id + 1
-  #   {id, [%Node{id: id, name: node_name}]}
-  # end
 end
